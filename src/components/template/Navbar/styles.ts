@@ -6,6 +6,7 @@ import styled from "styled-components";
 const Create = {
   NavigationIcon: styled(MenuOutlined)`
     font-size: 30px;
+    color: white;
   `,
 
   NavigationMenu: styled(Menu)`

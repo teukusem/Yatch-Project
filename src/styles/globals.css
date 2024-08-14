@@ -62,7 +62,8 @@ body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: #000;
+  font-family: "Poppins", sans-serif;
 }
 .menuIcon {
   background-color: var(--color-primary);
