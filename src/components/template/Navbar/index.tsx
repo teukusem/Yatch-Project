@@ -61,6 +61,7 @@ function NavigationBar() {
         styles={{
           body: { ...styles.drawerBodyStyles },
         }}
+        width={250}
       >
         <AppMenu isInline />
       </Drawer>
