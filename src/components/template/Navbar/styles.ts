@@ -44,10 +44,32 @@ const Create = {
     margin-left: 20px;
     margin-right: 20px;
   `,
+  ContainerActionNavbar: styled.div`
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+  `,
+  WrapperResponsiveIcon: styled.div`
+    display: flex;
+    gap: 1rem;
+  `,
+  HeaderSidebarResponsive: styled.div`
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+  `,
 };
 
 export const styles = {
   drawerBodyStyles: {
+    background: colorPallate.primaryDarkBlue,
+  },
+  headerStyles: {
+    display: "flex",
+    alignItems: "center",
+    height: 72,
+    justifyContent: "space-between",
     background: colorPallate.primaryDarkBlue,
   },
 };
