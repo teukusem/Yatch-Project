@@ -58,7 +58,7 @@ const Create = {
   HeaderSidebarResponsive: styled.div`
     display: flex;
     justify-content: center;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
   `,
 };
 
