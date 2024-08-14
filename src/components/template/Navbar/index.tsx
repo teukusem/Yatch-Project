@@ -28,7 +28,7 @@ function NavigationBar() {
           <Select
             defaultValue="eng"
             style={{
-              width: 100,
+              width: 80,
             }}
             onChange={handleSelectOptionsLanguange}
             options={getSelectOptionsLanguange}

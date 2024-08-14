@@ -52,7 +52,7 @@ const Create = {
   `,
   WrapperResponsiveIcon: styled.div`
     display: flex;
-    gap: 1rem;
+    gap: 0.5rem;
   `,
   HeaderSidebarResponsive: styled.div`
     display: flex;
