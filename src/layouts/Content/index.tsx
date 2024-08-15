@@ -12,6 +12,7 @@ function Content({ children }: ContentProps) {
 const Create = {
   WrapperSection: styled.section`
     padding: 72px 102px;
+    height: 100vh;
   `,
 };
 
