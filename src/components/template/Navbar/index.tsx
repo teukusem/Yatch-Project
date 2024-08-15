@@ -20,7 +20,6 @@ function NavigationBar() {
     <>
       <div className="menuIcon">
         <Create.WrapperResponsiveIcon>
-          <Logo width={60} height={50} />
           <Create.NavigationIcon onClick={() => setOpenMenu(true)} />
         </Create.WrapperResponsiveIcon>
 
