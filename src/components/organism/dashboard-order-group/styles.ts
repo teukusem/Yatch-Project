@@ -1,5 +1,14 @@
 import colorPallate from "@/utils/color";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const scroll = keyframes`
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+`;
 
 const Create = {
   ContainerHeader: styled.div`
@@ -24,6 +33,16 @@ const Create = {
     scrollbar-width: none;
     padding: 10px;
 
+    & > div {
+      display: flex;
+      gap: 2rem;
+      animation: ${scroll} 15s linear infinite;
+    }
+
+    &:hover > div {
+      animation-play-state: paused; /* Pause on hover */
+    }
+
     @media (max-width: 500px) {
       gap: 10rem;
     }
@@ -40,6 +59,7 @@ const Create = {
     border: 1px solid ${colorPallate.greyLight};
     padding: 24px;
     box-shadow: 4px 6px 6px ${colorPallate.grey};
+    flex-shrink: 0;
   `,
 };
 
