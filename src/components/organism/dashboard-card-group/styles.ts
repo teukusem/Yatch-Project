@@ -16,8 +16,8 @@ const Create = {
     box-shadow: 8px 5px 5px ${colorPallate.grey};
 
     @media (max-width: 700px) {
-      height: 350px;
-      width: 300px;
+      height: 300px;
+      width: 250px;
     }
   `,
   HeaderTextCard: styled.p`
