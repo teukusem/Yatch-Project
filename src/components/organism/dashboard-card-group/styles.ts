@@ -13,6 +13,12 @@ const Create = {
     text-align: center;
     display: grid;
     justify-items: center;
+    box-shadow: 8px 5px 5px ${colorPallate.grey};
+
+    @media (max-width: 700px) {
+      height: 350px;
+      width: 300px;
+    }
   `,
   HeaderTextCard: styled.p`
     font-size: 18px;

@@ -4,6 +4,7 @@ const colorPallate = {
   white: "#FFFFFF",
   greyLight: "#E9E9E9",
   grey: "#797A7C",
+  primaryBlue: "#006CE7",
 };
 
 export default colorPallate;
