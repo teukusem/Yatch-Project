@@ -12,7 +12,6 @@ function Content({ children }: ContentProps) {
 const Create = {
   WrapperSection: styled.section`
     padding: 72px 102px;
-    height: 100vh;
     @media (max-width: 700px) {
       padding: 30px;
     }
