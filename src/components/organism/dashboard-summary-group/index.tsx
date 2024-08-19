@@ -11,7 +11,13 @@ function DashboardSummaryGroup() {
   return (
     <>
       <Row gutter={[16, 16]}>
-        <Col xs={{ span: 24, flex: "100%" }} md={{ span: 12 }} lg={{ span: 6 }} style={style.ColumnStyle}>
+        <Col
+          xs={{ span: 24, flex: "100%" }}
+          md={{ span: 12 }}
+          lg={{ span: 12 }}
+          xl={{ span: 6 }}
+          style={style.ColumnStyle}
+        >
           <Create.SummaryCard>
             <Create.WrapperSummaryDescription>
               <Create.SummaryCountText>77</Create.SummaryCountText>
@@ -21,7 +27,13 @@ function DashboardSummaryGroup() {
           </Create.SummaryCard>
         </Col>
 
-        <Col xs={{ span: 24, flex: "100%" }} md={{ span: 12 }} lg={{ span: 6 }} style={style.ColumnStyle}>
+        <Col
+          xs={{ span: 24, flex: "100%" }}
+          md={{ span: 12 }}
+          lg={{ span: 12 }}
+          xl={{ span: 6 }}
+          style={style.ColumnStyle}
+        >
           <Create.SummaryCard>
             <Create.WrapperSummaryDescription>
               <Create.WrapperCardVesselMovement>
@@ -40,7 +52,13 @@ function DashboardSummaryGroup() {
           </Create.SummaryCard>
         </Col>
 
-        <Col xs={{ span: 24, flex: "100%" }} md={{ span: 12 }} lg={{ span: 6 }} style={style.ColumnStyle}>
+        <Col
+          xs={{ span: 24, flex: "100%" }}
+          md={{ span: 12 }}
+          lg={{ span: 12 }}
+          xl={{ span: 6 }}
+          style={style.ColumnStyle}
+        >
           <Create.SummaryCard>
             <Create.WrapperSummaryDescription>
               <Create.SummaryCountText>77</Create.SummaryCountText>
@@ -50,7 +68,13 @@ function DashboardSummaryGroup() {
           </Create.SummaryCard>
         </Col>
 
-        <Col xs={{ span: 24, flex: "100%" }} md={{ span: 12 }} lg={{ span: 6 }} style={style.ColumnStyle}>
+        <Col
+          xs={{ span: 24, flex: "100%" }}
+          md={{ span: 12 }}
+          lg={{ span: 12 }}
+          xl={{ span: 6 }}
+          style={style.ColumnStyle}
+        >
           <Create.SummaryCard>
             <Create.WrapperSummaryDescription>
               <Create.SummaryCountText>77</Create.SummaryCountText>
