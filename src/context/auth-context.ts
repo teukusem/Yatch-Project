@@ -8,8 +8,8 @@ interface PrivateRouteProps {
 export const PrivateRoute = ({ children }: PrivateRouteProps) => {
   const router = useRouter();
 
-  //   if (router.pathname === "/") {
-  //     router.push("/dashboard");
-  //   }
+  if (router.pathname === "/") {
+    router.push("/dashboard");
+  }
   return children;
 };
