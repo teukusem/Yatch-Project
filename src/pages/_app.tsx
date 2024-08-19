@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import theme from "@/theme/themeConfig";
 import "@/styles/globals.css";
 import Layout from "@/layouts";
+import { PrivateRoute } from "@/context/auth-context";
 
 const App: NextComponentType<AppContext, AppInitialProps, AppLayoutProps> = ({
   Component,
@@ -18,7 +19,9 @@ const App: NextComponentType<AppContext, AppInitialProps, AppLayoutProps> = ({
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <ConfigProvider theme={theme}>{getLayout(<Component {...pageProps} />)}</ConfigProvider>
+        <PrivateRoute>
+          <ConfigProvider theme={theme}>{getLayout(<Component {...pageProps} />)}</ConfigProvider>
+        </PrivateRoute>
       </PersistGate>
     </Provider>
   );

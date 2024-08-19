@@ -1,4 +1,4 @@
-import { Head, NavigationBar } from "@/components";
+import { NavigationBar } from "@/components";
 import React, { ReactNode } from "react";
 
 interface LayoutProps {

@@ -1,27 +1,27 @@
 import { Head } from "@/components";
-import styles from "@/styles/Dashboard.module.css";
 import Content from "@/layouts/Content";
-import DashboardCardGroup from "@/components/organism/dashboard-card-group";
-import DashboardOrderGroup from "@/components/organism/dashboard-order-group";
-import DashboardSummaryGroup from "@/components/organism/dashboard-summary-group";
+import { Button } from "antd";
+import { useRouter } from "next/router";
+import BlankLayout from "@/layouts/index-no-navbar";
+import { ReactNode } from "react";
 
-export default function Home() {
+export default function Unknown() {
+  const router = useRouter();
   return (
     <>
-      <Head title="Dashboard" />
+      <Head title="Unknown" />
       <Content>
-        <div className="grid-container">
-          <p className={styles.headertitle}>PHINNISI</p>
-          <DashboardCardGroup />
-          <DashboardOrderGroup />
-          <div>
-            <p className={styles.subheader}>Dashboard</p>
-            <p className={styles.subchildtext}>You can view summary reports in the dashboard</p>
-          </div>
-
-          <DashboardSummaryGroup />
-        </div>
+        <Button
+          color="primary"
+          onClick={() => {
+            router.push("/dashboard");
+          }}
+          block
+        >
+          Back to Dashboard
+        </Button>
       </Content>
     </>
   );
 }
+Unknown.getLayout = (page: ReactNode) => <BlankLayout>{page}</BlankLayout>;
