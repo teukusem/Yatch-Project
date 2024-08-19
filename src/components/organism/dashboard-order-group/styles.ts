@@ -40,7 +40,7 @@ const Create = {
     }
 
     &:hover > div {
-      animation-play-state: paused; /* Pause on hover */
+      animation-play-state: paused;
     }
 
     @media (max-width: 500px) {
@@ -58,9 +58,46 @@ const Create = {
     border-radius: 12px;
     border: 1px solid ${colorPallate.greyLight};
     padding: 24px;
-    box-shadow: 4px 6px 6px ${colorPallate.grey};
+    box-shadow: 2px 4px 4px ${colorPallate.grey};
     flex-shrink: 0;
   `,
+  WrapperHeader: styled.div`
+    display: flex;
+    justify-content: space-between;
+
+    & > div {
+      font-weight: 500;
+
+      & > span {
+        color: ${colorPallate.grey};
+        margin-right: 6px;
+      }
+    }
+  `,
+  WrapperHasSpace: styled.div`
+    display: flex;
+    gap: 1rem;
+  `,
+  TitleVessel: styled.p`
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  `,
+  FooterItem: styled.div`
+    width: fit-content;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  `,
+};
+
+export const style = {
+  DividerStyle: {
+    borderColor: colorPallate.geryLight100,
+    margin: "16px 0px",
+  },
 };
 
 export default Create;

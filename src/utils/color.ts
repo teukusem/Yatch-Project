@@ -9,6 +9,8 @@ const colorPallate = {
   primaryBlue: "#006CE7",
   yellow: "#F6C01D",
   yellowLight100: "#FEF9E8",
+  black: "#202124",
+  blackLight100: "#464646",
 };
 
 export default colorPallate;

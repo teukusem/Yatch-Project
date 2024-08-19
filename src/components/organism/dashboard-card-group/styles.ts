@@ -41,4 +41,11 @@ const Create = {
   `,
 };
 
+export const style = {
+  ColumnStyle: {
+    display: "flex",
+    justifyContent: "center",
+  },
+};
+
 export default Create;

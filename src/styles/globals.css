@@ -8,6 +8,8 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
   --color-primary: #00205b;
+  --color-black: #202124;
+  --color-grey: #797a7c;
 
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
