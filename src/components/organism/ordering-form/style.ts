@@ -1,5 +1,5 @@
 import colorPallate from "@/utils/color";
-import { DatePicker, Form, Input } from "antd";
+import { DatePicker, Form, Input, Select } from "antd";
 import styled from "styled-components";
 
 const Create = {
@@ -24,6 +24,9 @@ const Create = {
       font-size: 12px;
       font-weight: 500;
     }
+  `,
+  SelectCustom: styled(Select)`
+    height: 56px;
   `,
 };
 

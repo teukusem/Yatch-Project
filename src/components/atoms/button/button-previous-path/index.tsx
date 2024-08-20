@@ -12,7 +12,11 @@ function ButtonPreviousPath({ label }: ButtonPreviousPathProps) {
   const router = useRouter();
   return (
     <>
-      <Button onClick={() => router.back()} type="text" style={style.buttonBackStyles}>
+      <Button
+        onClick={() => router.back()}
+        type="text"
+        style={style.buttonBackStyles}
+      >
         <RiArrowLeftLine size={24} />
         {label}
       </Button>
@@ -23,7 +27,7 @@ function ButtonPreviousPath({ label }: ButtonPreviousPathProps) {
 const style = {
   buttonBackStyles: {
     fontSize: 22,
-    color: colorPallate.lightBlue,
+    color: colorPallate.darkblueLight,
     fontWeight: 600,
     background: "transparent",
   },

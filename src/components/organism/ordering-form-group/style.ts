@@ -7,7 +7,7 @@ const Create = {
     border: 1px solid ${colorPallate.greyLight};
     height: fit-content;
     border-radius: 12px;
-    padding: 12px;
+    padding: 24px;
   `,
 };
 
