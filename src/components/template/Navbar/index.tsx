@@ -6,6 +6,8 @@ import { UserOutlined } from "@ant-design/icons";
 import notification from "@/assets/images/icon/notification.svg";
 import Image from "next/image";
 import { getSelectOptionsLanguange } from "@/utils/getSelectOptions";
+import { useRouter } from "next/router";
+import { Url } from "next/dist/shared/lib/router/router";
 
 const { Header } = Layout;
 
@@ -15,6 +17,8 @@ function NavigationBar() {
   const handleSelectOptionsLanguange = (value: string) => {
     console.log(value);
   };
+
+  const handleCloseSidebar = () => setOpenMenu(false);
 
   return (
     <>
@@ -65,7 +69,7 @@ function NavigationBar() {
       <Drawer
         placement="left"
         open={openMenu}
-        onClose={() => setOpenMenu(false)}
+        onClose={handleCloseSidebar}
         closable={false}
         styles={{
           body: { ...styles.drawerBodyStyles },
@@ -75,7 +79,7 @@ function NavigationBar() {
         <Create.HeaderSidebarResponsive>
           <Logo />
         </Create.HeaderSidebarResponsive>
-        <AppMenu isInline />
+        <AppMenu isInline handleCloseSidebar={handleCloseSidebar} />
       </Drawer>
     </>
   );
@@ -83,28 +87,39 @@ function NavigationBar() {
 
 interface AppMenuProps {
   isInline?: boolean;
+  handleCloseSidebar?: () => void | undefined;
 }
 
-const AppMenu = ({ isInline }: AppMenuProps) => {
+const AppMenu = ({ isInline, handleCloseSidebar }: AppMenuProps) => {
+  const router = useRouter();
+
+  const handleChangeRoutePath = ({ key }: { key: string }) => {
+    router.push(key);
+    if (isInline && handleCloseSidebar) {
+      handleCloseSidebar();
+    }
+  };
   const items = [
     {
       label: "Home",
-      key: "mail1",
+      key: "/dashboard",
     },
     {
       label: "Ordering",
-      key: "mail2",
+      key: "/ordering",
     },
     {
       label: "History Order",
-      key: "mail3",
+      key: "/history-order",
     },
     {
       label: "Billing",
-      key: "mail4",
+      key: "/billing",
     },
   ];
-  return <Create.NavigationMenu items={items} mode={isInline ? "inline" : "horizontal"} />;
+  return (
+    <Create.NavigationMenu onSelect={handleChangeRoutePath} items={items} mode={isInline ? "inline" : "horizontal"} />
+  );
 };
 
 export default NavigationBar;

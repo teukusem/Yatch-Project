@@ -38,6 +38,10 @@ const Create = {
     line-height: 21;
     height: 45px;
     background: ${colorPallate.navalNight};
+
+    &:hover {
+      background: ${colorPallate.navalNight} !important;
+    }
   `,
 };
 

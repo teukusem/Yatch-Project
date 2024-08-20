@@ -5,8 +5,10 @@ import Image from "next/image";
 import ship from "@/assets/images/icon/ship.svg";
 import folder from "@/assets/images/icon/folder.svg";
 import monitorbilling from "@/assets/images/icon/monitor-billing.svg";
+import { useRouter } from "next/router";
 
 function DashboardCardGroup() {
+  const router = useRouter();
   return (
     <Row gutter={[16, 16]} justify={"center"}>
       <Col xs={{ span: 24, flex: "100%" }} md={{ span: 8 }} lg={{ span: 6 }} style={style.ColumnStyle}>
@@ -17,7 +19,7 @@ function DashboardCardGroup() {
               <Create.HeaderTextCard>Order</Create.HeaderTextCard>
               <Create.SubTextCard>Search and Create Your Order</Create.SubTextCard>
             </div>
-            <Create.ButtonStyleNavigation type="primary" block>
+            <Create.ButtonStyleNavigation type="primary" block onClick={() => router.push("/ordering")}>
               Open
             </Create.ButtonStyleNavigation>
           </Create.WrapperNavigationContainer>

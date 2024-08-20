@@ -36,7 +36,7 @@ const Create = {
     & > div {
       display: flex;
       gap: 2rem;
-      animation: ${scroll} 15s linear infinite;
+      // animation: ${scroll} 15s linear infinite;
     }
 
     &:hover > div {
@@ -95,7 +95,7 @@ const Create = {
 
 export const style = {
   DividerStyle: {
-    borderColor: colorPallate.geryLight100,
+    borderColor: colorPallate.greyLight100,
     margin: "16px 0px",
   },
 };
