@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import Create, { style } from "./style";
 import { RiAddLine } from "@remixicon/react";
 import ModalAdditionalVessel from "../ordering-modal-additional-vessel";
+import FormItemCustom from "@/components/atoms/form-item";
+import InputCustom from "@/components/atoms/input";
+import SelectCustom from "@/components/atoms/select";
+import { dummyOptions } from "@/utils/getSelectOptions";
 
 function FormOrdering() {
   const [searchValueVessel, setSearchValueVessel] = useState<string | null>(
@@ -15,27 +19,16 @@ function FormOrdering() {
 
   return (
     <>
-      <Create.FormItemCustom label="Vessel Name" name="vessel_name">
-        <Create.SelectCustom
+      <FormItemCustom label="Vessel Name" name="vessel_name">
+        <SelectCustom
           showSearch
           placeholder="Vessel Name"
-          filterOption={(input, option) =>
-            (option?.label ?? "").toLowerCase().includes(input.toLowerCase())
+          filterOption={(input: string, option) =>
+            String(option?.label ?? "")
+              .toLowerCase()
+              .includes(input.toLowerCase())
           }
-          options={[
-            {
-              value: "1",
-              label: "Jack",
-            },
-            {
-              value: "2",
-              label: "Lucy",
-            },
-            {
-              value: "3",
-              label: "Tom",
-            },
-          ]}
+          options={dummyOptions}
           onSearch={(value) => setSearchValueVessel(value)}
           notFoundContent={
             <Create.WrapperNotFoundContent
@@ -51,65 +44,42 @@ function FormOrdering() {
             </Create.WrapperNotFoundContent>
           }
         />
-      </Create.FormItemCustom>
+      </FormItemCustom>
 
-      <Create.FormItemCustom label="Loa" style={style.formItemParent}>
-        <Create.FormItemCustom name="loa_meter" style={style.formItemLeftSide}>
-          <Create.InputCustom
-            placeholder="Loa (Meter)"
-            disabled
-            addonAfter="M"
-          />
-        </Create.FormItemCustom>
-        <Create.FormItemCustom name="loa_feet" style={style.formItemRightSide}>
-          <Create.InputCustom
-            placeholder="Loa (Feet)"
-            disabled
-            addonAfter="Feet"
-          />
-        </Create.FormItemCustom>
-      </Create.FormItemCustom>
+      <FormItemCustom label="Loa" style={style.formItemParent}>
+        <FormItemCustom name="loa_meter" style={style.formItemLeftSide}>
+          <InputCustom placeholder="Loa (Meter)" disabled addonAfter="M" />
+        </FormItemCustom>
+        <FormItemCustom name="loa_feet" style={style.formItemRightSide}>
+          <InputCustom placeholder="Loa (Feet)" disabled addonAfter="Feet" />
+        </FormItemCustom>
+      </FormItemCustom>
 
-      <Create.FormItemCustom label="" style={style.formItemParent}>
-        <Create.FormItemCustom
-          label="GT"
-          name="gt_ton"
-          style={style.formItemLeftSide}
-        >
-          <Create.InputCustom placeholder="GT" disabled addonAfter="M" />
-        </Create.FormItemCustom>
-        <Create.FormItemCustom
+      <FormItemCustom label="" style={style.formItemParent}>
+        <FormItemCustom label="GT" name="gt_ton" style={style.formItemLeftSide}>
+          <InputCustom placeholder="GT" disabled addonAfter="M" />
+        </FormItemCustom>
+        <FormItemCustom
           label="Yacht Type"
           name="yacht_type"
           style={style.formItemRightSide}
         >
-          <Create.SelectCustom
+          <SelectCustom
             showSearch
             placeholder="Yacht Type"
             disabled
             filterOption={(input, option) =>
-              (option?.label ?? "").toLowerCase().includes(input.toLowerCase())
+              String(option?.label ?? "")
+                .toLowerCase()
+                .includes(input.toLowerCase())
             }
-            options={[
-              {
-                value: "1",
-                label: "Jack",
-              },
-              {
-                value: "2",
-                label: "Lucy",
-              },
-              {
-                value: "3",
-                label: "Tom",
-              },
-            ]}
+            options={dummyOptions}
           />
-        </Create.FormItemCustom>
-      </Create.FormItemCustom>
+        </FormItemCustom>
+      </FormItemCustom>
 
-      <Create.FormItemCustom label="" style={style.formItemParent}>
-        <Create.FormItemCustom
+      <FormItemCustom label="" style={style.formItemParent}>
+        <FormItemCustom
           name="start_berthing"
           label="Start Berthing"
           style={style.formItemLeftSide}
@@ -119,9 +89,9 @@ function FormOrdering() {
               width: "100%",
             }}
           />
-        </Create.FormItemCustom>
+        </FormItemCustom>
 
-        <Create.FormItemCustom
+        <FormItemCustom
           name="end_berthing"
           label="End Berthing"
           style={style.formItemRightSide}
@@ -131,82 +101,60 @@ function FormOrdering() {
               width: "100%",
             }}
           />
-        </Create.FormItemCustom>
-      </Create.FormItemCustom>
+        </FormItemCustom>
+      </FormItemCustom>
 
-      <Create.FormItemCustom label="" style={style.formItemParent}>
-        <Create.FormItemCustom
+      <FormItemCustom label="" style={style.formItemParent}>
+        <FormItemCustom
           label="Last Port"
           name="last_port"
           style={style.formItemLeftSide}
         >
-          <Create.SelectCustom
+          <SelectCustom
             showSearch
             placeholder="Last Port"
             filterOption={(input, option) =>
-              (option?.label ?? "").toLowerCase().includes(input.toLowerCase())
+              String(option?.label ?? "")
+                .toLowerCase()
+                .includes(input.toLowerCase())
             }
-            options={[
-              {
-                value: "1",
-                label: "Jack",
-              },
-              {
-                value: "2",
-                label: "Lucy",
-              },
-              {
-                value: "3",
-                label: "Tom",
-              },
-            ]}
+            options={dummyOptions}
           />
-        </Create.FormItemCustom>
-        <Create.FormItemCustom
+        </FormItemCustom>
+        <FormItemCustom
           label="Next Port"
           name="next_port"
           style={style.formItemRightSide}
         >
-          <Create.SelectCustom
+          <SelectCustom
             showSearch
             placeholder="Next Port"
             filterOption={(input, option) =>
-              (option?.label ?? "").toLowerCase().includes(input.toLowerCase())
+              String(option?.label ?? "")
+                .toLowerCase()
+                .includes(input.toLowerCase())
             }
-            options={[
-              {
-                value: "1",
-                label: "Jack",
-              },
-              {
-                value: "2",
-                label: "Lucy",
-              },
-              {
-                value: "3",
-                label: "Tom",
-              },
-            ]}
+            options={dummyOptions}
           />
-        </Create.FormItemCustom>
-      </Create.FormItemCustom>
+        </FormItemCustom>
+      </FormItemCustom>
 
-      <Create.FormItemCustom label="" style={style.formItemParent}>
-        <Create.FormItemCustom
+      <FormItemCustom label="" style={style.formItemParent}>
+        <FormItemCustom
           label="Draft (Fore)"
           name="draft_fore"
           style={style.formItemLeftSide}
         >
-          <Create.InputCustom placeholder="Draft (Fore)" />
-        </Create.FormItemCustom>
-        <Create.FormItemCustom
+          <InputCustom placeholder="Draft (Fore)" />
+        </FormItemCustom>
+        <FormItemCustom
           label="Draft (Aft)"
           name="draft_aft"
           style={style.formItemRightSide}
         >
-          <Create.InputCustom placeholder="Draft (Aft)" />
-        </Create.FormItemCustom>
-      </Create.FormItemCustom>
+          <InputCustom placeholder="Draft (Aft)" />
+        </FormItemCustom>
+      </FormItemCustom>
 
       <ModalAdditionalVessel
         isModalAdditional={isModalAdditionalVessel}

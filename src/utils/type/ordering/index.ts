@@ -11,3 +11,7 @@ export type OrderingFormFieldType = {
   draft_fore: string;
   draft_aft: string;
 };
+export type StringOption = {
+  value: string;
+  label: string;
+};
