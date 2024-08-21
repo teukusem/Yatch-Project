@@ -28,6 +28,34 @@ const Create = {
   SelectCustom: styled(Select)`
     height: 56px;
   `,
+  WrapperNotFoundContent: styled.div`
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-size: 14px;
+    color: ${colorPallate.greyLight300};
+  `,
+  VesselNameValue: styled.span`
+    margin-left: 4px;
+    font-weight: 600;
+    color: ${colorPallate.grey};
+  `,
+};
+
+export const style = {
+  formItemLeftSide: {
+    display: "inline-block",
+    width: "calc(50% - 8px)",
+  },
+  formItemRightSide: {
+    display: "inline-block",
+    width: "calc(50% - 8px)",
+    margin: "0 8px",
+  },
+  formItemParent: {
+    marginBottom: 0,
+  },
 };
 
 export default Create;

@@ -9,6 +9,7 @@ const colorPallate = {
   greyLight: "#E9E9E9",
   greyLight100: "#D5D7D9",
   greyLight200: "#BCBCBD",
+  greyLight300: "#A6A6A7",
   grey: "#797A7C",
   yellow: "#F6C01D",
   yellowLight100: "#FEF9E8",

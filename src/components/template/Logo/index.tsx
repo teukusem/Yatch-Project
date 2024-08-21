@@ -8,7 +8,16 @@ interface LogoProps {
 }
 
 const Logo = ({ width = 70, height = 48 }: LogoProps) => {
-  return <Image quality={100} priority={true} src={PhinnisiLogo} width={width} height={height} alt="waizly-logo" />;
+  return (
+    <Image
+      quality={100}
+      priority={true}
+      src={PhinnisiLogo}
+      width={width}
+      height={height}
+      alt="waizly-logo"
+    />
+  );
 };
 
 export default Logo;
