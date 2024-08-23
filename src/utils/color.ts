@@ -2,6 +2,7 @@ const colorPallate = {
   primaryDarkBlue: "#00205B",
   darkblueLight: "#38496C",
   primaryBlue: "#006CE7",
+  royalBlue: "#66A7F1",
   primaryBlue100: "#1890ff",
   navalNight: "#001D35",
   white: "#FFFFFF",

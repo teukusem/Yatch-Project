@@ -1,7 +1,6 @@
 import { Tabs } from "antd";
 import React, { useState } from "react";
-import styled from "styled-components";
-import Create from "./styles";
+import Create, { WrapperLabel } from "./styles";
 
 const GridNumber = () => {
   const [selectedNumbers, setSelectedNumbers] = useState<number[]>([]);
@@ -15,22 +14,20 @@ const GridNumber = () => {
     }
   };
 
+  const onChange = (key: string) => {
+    setKeyActive(key);
+  };
+
   const items = [
     {
       key: "1",
       label: (
-        <div>
-          <p style={{ fontWeight: 500, fontSize: 16 }}>Marina 1</p>
-          <p
-            style={{
-              fontWeight: 500,
-              fontSize: 10,
-              color: keyActive !== "1" ? "#A6A6A7" : "#66A7F1",
-            }}
-          >
+        <WrapperLabel>
+          <Create.TabsHeaderLabel>Marina 1</Create.TabsHeaderLabel>
+          <Create.AvailableLabel $active={keyActive === "1"}>
             Available: 14 Slot
-          </p>
-        </div>
+          </Create.AvailableLabel>
+        </WrapperLabel>
       ),
       children: (
         <Create.OuterContainer $showBefore={false}>
@@ -53,18 +50,12 @@ const GridNumber = () => {
     {
       key: "2",
       label: (
-        <div>
-          <p style={{ fontWeight: 500, fontSize: 16 }}>Marina 2</p>
-          <p
-            style={{
-              fontWeight: 500,
-              fontSize: 10,
-              color: keyActive !== "2" ? "#A6A6A7" : "#66A7F1",
-            }}
-          >
+        <WrapperLabel>
+          <Create.TabsHeaderLabel>Marina 2</Create.TabsHeaderLabel>
+          <Create.AvailableLabel $active={keyActive === "2"}>
             Available: 14 Slot
-          </p>
-        </div>
+          </Create.AvailableLabel>
+        </WrapperLabel>
       ),
       children: (
         <Create.OuterContainer $showBefore={true}>
@@ -87,23 +78,21 @@ const GridNumber = () => {
     {
       key: "3",
       label: (
-        <div>
-          <p style={{ fontWeight: 500, fontSize: 16 }}>Marina 3</p>
-          <p
-            style={{
-              fontWeight: 500,
-              fontSize: 10,
-              color: keyActive !== "3" ? "#A6A6A7" : "#66A7F1",
-            }}
-          >
-            Available: 14 Slot
-          </p>
-        </div>
+        <WrapperLabel>
+          <Create.TabsHeaderLabel>Marina 3</Create.TabsHeaderLabel>
+          <Create.AvailableLabel $active={keyActive === "3"}>
+            Available: 3 Slot
+          </Create.AvailableLabel>
+        </WrapperLabel>
       ),
       children: (
-        <Create.OuterContainer $showBefore={false}>
-          <Create.GridContainer $gridColumn="repeat(7, 1fr)">
-            {Array.from({ length: 14 }, (_, index) => index + 1).map(
+        <Create.OuterContainer
+          $showBefore={false}
+          $borderTop="none"
+          $borderleft="none"
+        >
+          <Create.GridContainer $gridColumn="repeat(3, 1fr)">
+            {Array.from({ length: 3 }, (_, index) => index + 1).map(
               (number) => (
                 <Create.NumberButton
                   key={number}
@@ -120,11 +109,12 @@ const GridNumber = () => {
     },
   ];
 
-  const onChange = (key: string) => {
-    setKeyActive(key);
-  };
-
-  return <Tabs defaultActiveKey="1" items={items} onChange={onChange} />;
+  return (
+    <>
+      <Create.TitleHeader>Pelabuhan Marina</Create.TitleHeader>
+      <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
+    </>
+  );
 };
 
 export default GridNumber;

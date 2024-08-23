@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Col, Form, Row } from "antd";
+import { Button, Col, Divider, Form, Row } from "antd";
 import Create from "./style";
 import FormOrdering from "../ordering-form";
 import type { OrderingFormFieldType } from "@/utils/type/ordering";
@@ -64,9 +64,16 @@ function OrderingGroup() {
           </Col>
         </Row>
 
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
+        <Divider />
+        <div style={{ display: "flex", justifyContent: "end" }}>
+          <Button
+            type="primary"
+            htmlType="submit"
+            style={{ width: 124, fontSize: 16, fontWeight: 500, height: 48 }}
+          >
+            Order
+          </Button>
+        </div>
       </Form>
     </>
   );
