@@ -9,11 +9,10 @@ function Ordering() {
     <>
       <Head title="Ordering" />
       <Content>
-        <div className="grid-container">
-          <div>
-            <ButtonPreviousPath label="Ordering" />
-          </div>
-
+        <div>
+          <ButtonPreviousPath label="Ordering" />
+        </div>
+        <div>
           <OrderingGroup />
         </div>
       </Content>

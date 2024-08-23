@@ -9,8 +9,8 @@ const FormItemStyled = styled(Form.Item)`
   }
 `;
 
-const FormItemCustom: React.FC<FormItemProps> = (props) => {
-  return <FormItemStyled {...props} />;
+const FormItemCustom: React.FC<FormItemProps> = ({ children, ...props }) => {
+  return <FormItemStyled {...props}>{children}</FormItemStyled>;
 };
 
 export default FormItemCustom;

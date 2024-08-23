@@ -1,22 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ModalPopup from "@/components/atoms/modal";
-import { Button, Form } from "antd";
+import { Button, Form, Select } from "antd";
 import { style } from "./style";
 import FormItemCustom from "@/components/atoms/form-item";
 import InputCustom from "@/components/atoms/input";
 import SelectCustom from "@/components/atoms/select";
 import { dummyOptions } from "@/utils/getSelectOptions";
+import Image from "next/image";
 
 interface ModalAdditionalVessel {
   isModalAdditional: boolean;
   changeModalPermission: () => void;
+  vesselName: string;
 }
+
+const { Option } = Select;
 
 function ModalAdditionalVessel({
   isModalAdditional,
   changeModalPermission,
+  vesselName,
 }: ModalAdditionalVessel) {
   const [form] = Form.useForm();
+  const [countries, setCountries] = useState<any[]>([]);
 
   const handleCancel = () => {
     changeModalPermission();
@@ -31,6 +37,19 @@ function ModalAdditionalVessel({
       changeModalPermission();
     }
   };
+
+  const fetchCountries = async () => {
+    try {
+      const response = await fetch("https://restcountries.com/v3.1/all");
+      const data = await response.json();
+      setCountries(data);
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    fetchCountries();
+  }, []);
+  console.log(vesselName);
   return (
     <ModalPopup
       title="Add New Vessel"
@@ -50,7 +69,7 @@ function ModalAdditionalVessel({
             name="vessel_name"
             style={style.formItemLeftSide}
           >
-            <InputCustom placeholder="Vessel Name" />
+            <InputCustom defaultValue={vesselName} placeholder="Vessel Name" />
           </FormItemCustom>
           <FormItemCustom
             label="Yacht Type"
@@ -67,6 +86,49 @@ function ModalAdditionalVessel({
               }
               options={dummyOptions}
             />
+          </FormItemCustom>
+        </FormItemCustom>
+
+        <FormItemCustom label="" style={style.formItemParent}>
+          <FormItemCustom
+            label="Call Sign"
+            name="call_sign"
+            style={style.formItemLeftSide}
+          >
+            <InputCustom placeholder="Call Sign" />
+          </FormItemCustom>
+          <FormItemCustom
+            label="National"
+            name="national"
+            style={style.formItemRightSide}
+          >
+            <SelectCustom
+              showSearch
+              placeholder="National"
+              filterOption={(input, option) =>
+                String(option?.value ?? "")
+                  .toLowerCase()
+                  .includes(input.toLowerCase())
+              }
+              allowClear
+            >
+              {countries.map((country, index) => (
+                <Option key={index} value={country.name.common}>
+                  <div
+                    style={{ display: "flex", alignItems: "center", gap: 16 }}
+                  >
+                    <Image
+                      width={16}
+                      height={16}
+                      style={{ borderRadius: "50%" }}
+                      src={country.flags.svg}
+                      alt={country.name.common}
+                    />
+                    {country.name.common}
+                  </div>
+                </Option>
+              ))}
+            </SelectCustom>
           </FormItemCustom>
         </FormItemCustom>
       </Form>

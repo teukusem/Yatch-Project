@@ -11,15 +11,15 @@ const Create = {
   WrapperRowItem: styled(Row)`
     margin-top: 16px;
   `,
-  CardServices: styled.div<{ border: boolean }>`
+  CardServices: styled.div<{ $isSelected?: boolean }>`
     display: flex;
     justify-content: space-between;
     font-size: 14px;
     padding: 16px;
     cursor: pointer;
     border-radius: 10px;
-    border: ${({ border }) =>
-      border
+    border: ${({ $isSelected }) =>
+      $isSelected
         ? `2px solid ${colorPallate.primaryBlue100}`
         : `1px solid ${colorPallate.greyLight200}`};
   `,

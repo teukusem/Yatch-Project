@@ -53,7 +53,7 @@ function OrderingServices({
             key={service.id}
           >
             <Create.CardServices
-              border={selectedServices.includes(service.id)}
+              $isSelected={selectedServices.includes(service.id)}
               onClick={() => handleSelect(service.id)}
               key={service.id}
             >

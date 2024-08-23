@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Create, { style } from "./style";
 import { RiAddLine } from "@remixicon/react";
 import ModalAdditionalVessel from "../ordering-modal-additional-vessel";
@@ -8,14 +8,21 @@ import SelectCustom from "@/components/atoms/select";
 import { dummyOptions } from "@/utils/getSelectOptions";
 
 function FormOrdering() {
-  const [searchValueVessel, setSearchValueVessel] = useState<string | null>(
-    null
-  );
+  const [searchValueVessel, setSearchValueVessel] = useState<string>("");
+  const [temporaryDataVessel, setTemporaryDataVessel] = useState<string>("");
   const [isModalAdditionalVessel, setIsModalAdditionalVessel] =
-    useState<boolean>(true);
+    useState<boolean>(false);
 
-  const handleChangeModalPermission = () =>
+  const handleChangeModalPermission = () => {
     setIsModalAdditionalVessel((prev) => !prev);
+  };
+
+  const handleSearchValue = (value: string) => {
+    if (Boolean(value)) {
+      setTemporaryDataVessel(value);
+    }
+    setSearchValueVessel(value);
+  };
 
   return (
     <>
@@ -29,7 +36,9 @@ function FormOrdering() {
               .includes(input.toLowerCase())
           }
           options={dummyOptions}
-          onSearch={(value) => setSearchValueVessel(value)}
+          onSearch={(value: string) => handleSearchValue(value)}
+          searchValue={searchValueVessel}
+          autoClearSearchValue={false}
           notFoundContent={
             <Create.WrapperNotFoundContent
               onClick={handleChangeModalPermission}
@@ -159,6 +168,7 @@ function FormOrdering() {
       <ModalAdditionalVessel
         isModalAdditional={isModalAdditionalVessel}
         changeModalPermission={handleChangeModalPermission}
+        vesselName={temporaryDataVessel}
         key={"modal-additional-vessel"}
       />
     </>

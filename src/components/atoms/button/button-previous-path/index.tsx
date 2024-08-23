@@ -30,6 +30,7 @@ const style = {
     color: colorPallate.darkblueLight,
     fontWeight: 600,
     background: "transparent",
+    marginBottom: "2rem",
   },
 };
 
