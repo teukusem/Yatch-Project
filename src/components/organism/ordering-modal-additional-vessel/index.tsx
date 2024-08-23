@@ -49,7 +49,7 @@ function ModalAdditionalVessel({
   useEffect(() => {
     fetchCountries();
   }, []);
-  console.log(vesselName);
+
   return (
     <ModalPopup
       title="Add New Vessel"
@@ -62,14 +62,18 @@ function ModalAdditionalVessel({
         </Button>,
       ]}
     >
-      <Form form={form} layout="vertical">
+      <Form
+        form={form}
+        layout="vertical"
+        initialValues={{ vessel_name: vesselName }}
+      >
         <FormItemCustom label="" style={style.formItemParent}>
           <FormItemCustom
             label="Vessel Name"
             name="vessel_name"
             style={style.formItemLeftSide}
           >
-            <InputCustom defaultValue={vesselName} placeholder="Vessel Name" />
+            <InputCustom placeholder="Vessel Name" />
           </FormItemCustom>
           <FormItemCustom
             label="Yacht Type"

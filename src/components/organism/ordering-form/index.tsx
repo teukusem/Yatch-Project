@@ -167,7 +167,10 @@ function FormOrdering() {
 
       <ModalAdditionalVessel
         isModalAdditional={isModalAdditionalVessel}
-        changeModalPermission={handleChangeModalPermission}
+        changeModalPermission={() => {
+          handleChangeModalPermission();
+          setTemporaryDataVessel("");
+        }}
         vesselName={temporaryDataVessel}
         key={"modal-additional-vessel"}
       />
