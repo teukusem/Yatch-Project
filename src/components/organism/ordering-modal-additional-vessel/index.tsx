@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import ModalPopup from "@/components/atoms/modal";
 import { Button, Form, Select } from "antd";
-import { style } from "./style";
+import Create, { style } from "./style";
 import FormItemCustom from "@/components/atoms/form-item";
 import InputCustom from "@/components/atoms/input";
 import SelectCustom from "@/components/atoms/select";
 import { dummyOptions } from "@/utils/getSelectOptions";
 import Image from "next/image";
+import FileUploadComponent from "@/components/atoms/upload";
 
 interface ModalAdditionalVessel {
   isModalAdditional: boolean;
@@ -49,7 +50,7 @@ function ModalAdditionalVessel({
   useEffect(() => {
     fetchCountries();
   }, []);
-  console.log(vesselName);
+
   return (
     <ModalPopup
       title="Add New Vessel"
@@ -62,14 +63,18 @@ function ModalAdditionalVessel({
         </Button>,
       ]}
     >
-      <Form form={form} layout="vertical">
+      <Form
+        form={form}
+        layout="vertical"
+        initialValues={{ vessel_name: vesselName }}
+      >
         <FormItemCustom label="" style={style.formItemParent}>
           <FormItemCustom
             label="Vessel Name"
             name="vessel_name"
             style={style.formItemLeftSide}
           >
-            <InputCustom defaultValue={vesselName} placeholder="Vessel Name" />
+            <InputCustom placeholder="Vessel Name" />
           </FormItemCustom>
           <FormItemCustom
             label="Yacht Type"
@@ -87,6 +92,46 @@ function ModalAdditionalVessel({
               options={dummyOptions}
             />
           </FormItemCustom>
+        </FormItemCustom>
+
+        <FormItemCustom style={style.formItemParent}>
+          <Create.StyledFormItemLeftSide>
+            <FormItemCustom
+              label="Loa"
+              name="loa_meter"
+              style={style.formItemLeftSide}
+            >
+              <InputCustom placeholder="Loa (Meter)" addonAfter="M" />
+            </FormItemCustom>
+            <FormItemCustom
+              label=" "
+              name="width_meter"
+              style={style.formItemRightSide}
+            >
+              <InputCustom
+                disabled
+                placeholder="Loa (Feet)"
+                addonAfter="Feet"
+              />
+            </FormItemCustom>
+          </Create.StyledFormItemLeftSide>
+
+          <Create.StyledFormItemRightSide>
+            <FormItemCustom
+              label="GT"
+              name="gt_ton"
+              style={style.formItemLeftSide}
+            >
+              <InputCustom placeholder="GT (Meter)" addonAfter="Ton" />
+            </FormItemCustom>
+            <FormItemCustom
+              label="Width"
+              name="width_meter"
+              style={style.formItemRightSide}
+            >
+              <InputCustom placeholder="Width (Feet)" addonAfter="M" />
+            </FormItemCustom>
+          </Create.StyledFormItemRightSide>
         </FormItemCustom>
 
         <FormItemCustom label="" style={style.formItemParent}>
@@ -129,6 +174,34 @@ function ModalAdditionalVessel({
                 </Option>
               ))}
             </SelectCustom>
+          </FormItemCustom>
+        </FormItemCustom>
+
+        <FormItemCustom label="" style={style.formItemParent}>
+          <FormItemCustom
+            rules={[
+              {
+                required: true,
+              },
+            ]}
+            label="Upload VD"
+            name="upload_vd"
+            style={style.formItemLeftSide}
+          >
+            <FileUploadComponent title="Upload VD" />
+          </FormItemCustom>
+
+          <FormItemCustom
+            rules={[
+              {
+                required: true,
+              },
+            ]}
+            label="Upload Ship Particular"
+            name="upload_ship_particular"
+            style={style.formItemRightSide}
+          >
+            <FileUploadComponent title="Upload Ship Particular" />
           </FormItemCustom>
         </FormItemCustom>
       </Form>

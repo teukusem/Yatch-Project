@@ -1,44 +1,10 @@
+import { Tabs } from "antd";
 import React, { useState } from "react";
-import styled from "styled-components";
-
-const OuterContainer = styled.div`
-  padding: 10px;
-  border: 12px solid #d9d9d9;
-  border-right: none;
-`;
-
-const GridContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 10px;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  overflow: auto;
-`;
-
-const NumberButton = styled.button<{ $isSelected: boolean }>`
-  width: 63px;
-  height: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  border: 1px solid
-    ${({ $isSelected }) => ($isSelected ? "#1890ff" : "#d9d9d9")};
-  background-color: ${({ $isSelected }) =>
-    $isSelected ? "#f0f0f0" : "#ffffff"};
-  color: #000;
-  cursor: pointer;
-  font-size: 16px;
-
-  &:hover {
-    border-color: #1890ff;
-  }
-`;
+import Create, { WrapperLabel } from "./styles";
 
 const GridNumber = () => {
   const [selectedNumbers, setSelectedNumbers] = useState<number[]>([]);
+  const [keyActive, setKeyActive] = useState<string>("1");
 
   const handleNumberClick = (number: number) => {
     if (selectedNumbers.includes(number)) {
@@ -48,20 +14,106 @@ const GridNumber = () => {
     }
   };
 
+  const onChange = (key: string) => {
+    setKeyActive(key);
+  };
+
+  const items = [
+    {
+      key: "1",
+      label: (
+        <WrapperLabel>
+          <Create.TabsHeaderLabel>Marina 1</Create.TabsHeaderLabel>
+          <Create.AvailableLabel $active={keyActive === "1"}>
+            Available: 14 Slot
+          </Create.AvailableLabel>
+        </WrapperLabel>
+      ),
+      children: (
+        <Create.OuterContainer $showBefore={false}>
+          <Create.GridContainer $gridColumn="repeat(7, 1fr)">
+            {Array.from({ length: 14 }, (_, index) => index + 1).map(
+              (number) => (
+                <Create.NumberButton
+                  key={number}
+                  $isSelected={selectedNumbers.includes(number)}
+                  onClick={() => handleNumberClick(number)}
+                >
+                  {String(number).padStart(2, "0")}
+                </Create.NumberButton>
+              )
+            )}
+          </Create.GridContainer>
+        </Create.OuterContainer>
+      ),
+    },
+    {
+      key: "2",
+      label: (
+        <WrapperLabel>
+          <Create.TabsHeaderLabel>Marina 2</Create.TabsHeaderLabel>
+          <Create.AvailableLabel $active={keyActive === "2"}>
+            Available: 14 Slot
+          </Create.AvailableLabel>
+        </WrapperLabel>
+      ),
+      children: (
+        <Create.OuterContainer $showBefore={true}>
+          <Create.GridContainer $gridColumn="repeat(6, 1fr)">
+            {Array.from({ length: 14 }, (_, index) => index + 1).map(
+              (number) => (
+                <Create.NumberButton
+                  key={number}
+                  $isSelected={selectedNumbers.includes(number)}
+                  onClick={() => handleNumberClick(number)}
+                >
+                  {String(number).padStart(2, "0")}
+                </Create.NumberButton>
+              )
+            )}
+          </Create.GridContainer>
+        </Create.OuterContainer>
+      ),
+    },
+    {
+      key: "3",
+      label: (
+        <WrapperLabel>
+          <Create.TabsHeaderLabel>Marina 3</Create.TabsHeaderLabel>
+          <Create.AvailableLabel $active={keyActive === "3"}>
+            Available: 3 Slot
+          </Create.AvailableLabel>
+        </WrapperLabel>
+      ),
+      children: (
+        <Create.OuterContainer
+          $showBefore={false}
+          $borderTop="none"
+          $borderleft="none"
+        >
+          <Create.GridContainer $gridColumn="repeat(3, 1fr)">
+            {Array.from({ length: 3 }, (_, index) => index + 1).map(
+              (number) => (
+                <Create.NumberButton
+                  key={number}
+                  $isSelected={selectedNumbers.includes(number)}
+                  onClick={() => handleNumberClick(number)}
+                >
+                  {String(number).padStart(2, "0")}
+                </Create.NumberButton>
+              )
+            )}
+          </Create.GridContainer>
+        </Create.OuterContainer>
+      ),
+    },
+  ];
+
   return (
-    <OuterContainer>
-      <GridContainer>
-        {Array.from({ length: 14 }, (_, index) => index + 1).map((number) => (
-          <NumberButton
-            key={number}
-            $isSelected={selectedNumbers.includes(number)}
-            onClick={() => handleNumberClick(number)}
-          >
-            {String(number).padStart(2, "0")}
-          </NumberButton>
-        ))}
-      </GridContainer>
-    </OuterContainer>
+    <>
+      <Create.TitleHeader>Pelabuhan Marina</Create.TitleHeader>
+      <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
+    </>
   );
 };
 

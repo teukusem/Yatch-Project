@@ -7,6 +7,13 @@ const FormItemStyled = styled(Form.Item)`
     font-size: 12px;
     font-weight: 500;
   }
+  .ant-form-item-required {
+    flex-direction: row-reverse;
+  }
+
+  .ant-form-item-required:after {
+    display: none;
+  }
 `;
 
 const FormItemCustom: React.FC<FormItemProps> = ({ children, ...props }) => {

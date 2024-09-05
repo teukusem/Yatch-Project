@@ -11,7 +11,7 @@ function FormOrdering() {
   const [searchValueVessel, setSearchValueVessel] = useState<string>("");
   const [temporaryDataVessel, setTemporaryDataVessel] = useState<string>("");
   const [isModalAdditionalVessel, setIsModalAdditionalVessel] =
-    useState<boolean>(false);
+    useState<boolean>(true);
 
   const handleChangeModalPermission = () => {
     setIsModalAdditionalVessel((prev) => !prev);
@@ -96,6 +96,7 @@ function FormOrdering() {
           <Create.DatePickerCustom
             style={{
               width: "100%",
+              borderRadius: 10,
             }}
           />
         </FormItemCustom>
@@ -108,6 +109,7 @@ function FormOrdering() {
           <Create.DatePickerCustom
             style={{
               width: "100%",
+              borderRadius: 10,
             }}
           />
         </FormItemCustom>
@@ -167,7 +169,10 @@ function FormOrdering() {
 
       <ModalAdditionalVessel
         isModalAdditional={isModalAdditionalVessel}
-        changeModalPermission={handleChangeModalPermission}
+        changeModalPermission={() => {
+          handleChangeModalPermission();
+          setTemporaryDataVessel("");
+        }}
         vesselName={temporaryDataVessel}
         key={"modal-additional-vessel"}
       />
