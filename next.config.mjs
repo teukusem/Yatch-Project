@@ -1,15 +1,17 @@
 /** @type {import('next').NextConfig} */
 import withPWA from 'next-pwa';
-const nextConfig = {
-  reactStrictMode: true,
-  transpilePackages: ["antd", "@ant-design", "rc-util", "rc-pagination", "rc-picker", "rc-notification", "rc-tooltip", "rc-tree", "rc-table"],
-};
+import runtimeCaching from 'next-pwa/cache.js';
 
 const pwaConfig = withPWA({
-  dest: 'public',
-  disable: process.env.NODE_ENV === 'development',
+  dest: "public",
   register: true,
   skipWaiting: true,
+  disable: process.env.NODE_ENV === "development",
+  runtimeCaching
 });
 
-export default pwaConfig(nextConfig);
+
+export default pwaConfig({
+  reactStrictMode: true,
+  transpilePackages: ["antd", "@ant-design", "rc-util", "rc-pagination", "rc-picker", "rc-notification", "rc-tooltip", "rc-tree", "rc-table"],
+});

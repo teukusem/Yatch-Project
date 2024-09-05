@@ -5,7 +5,11 @@ import type { DocumentContext } from "next/document";
 
 const MyDocument = () => (
   <Html lang="en">
-    <Head />
+    <Head>
+      <link rel="manifest" href="/manifest.json" />
+      <link rel="apple-touch-icon" href="/icon-192x192.png" />
+      <meta name="theme-color" content="#042940" />
+    </Head>
     <body>
       <Main />
       <NextScript />
