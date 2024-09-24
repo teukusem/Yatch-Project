@@ -24,7 +24,7 @@ function DashboardOrderGroup() {
       <Row>
         <Create.ContainerCardOrder>
           {[...Array(10)].map((_, index) => (
-            <Col>
+            <Col key={index}>
               <Create.CardOrder>
                 <Create.WrapperHeader>
                   <div>

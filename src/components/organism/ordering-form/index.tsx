@@ -11,7 +11,7 @@ function FormOrdering() {
   const [searchValueVessel, setSearchValueVessel] = useState<string>("");
   const [temporaryDataVessel, setTemporaryDataVessel] = useState<string>("");
   const [isModalAdditionalVessel, setIsModalAdditionalVessel] =
-    useState<boolean>(true);
+    useState<boolean>(false);
 
   const handleChangeModalPermission = () => {
     setIsModalAdditionalVessel((prev) => !prev);

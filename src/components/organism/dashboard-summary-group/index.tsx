@@ -39,11 +39,11 @@ function DashboardSummaryGroup() {
               <Create.WrapperCardVesselMovement>
                 <Create.SummaryCountText fontSize="26px">
                   77
-                  <Create.SummaryTitleText fontSize="10px">Active</Create.SummaryTitleText>
+                  <Create.SpanSummaryTitleText fontSize="10px">Active</Create.SpanSummaryTitleText>
                 </Create.SummaryCountText>
                 <Create.SummaryCountText fontSize="26px">
                   77
-                  <Create.SummaryTitleText fontSize="10px">departed</Create.SummaryTitleText>
+                  <Create.SpanSummaryTitleText fontSize="10px">departed</Create.SpanSummaryTitleText>
                 </Create.SummaryCountText>
               </Create.WrapperCardVesselMovement>
               <Create.SummaryTitleText>Vessel Movement</Create.SummaryTitleText>

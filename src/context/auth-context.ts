@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, { ReactNode } from "react";
+import React, { ReactNode, useEffect } from "react";
 
 interface PrivateRouteProps {
   children?: ReactNode;
@@ -8,8 +8,11 @@ interface PrivateRouteProps {
 export const PrivateRoute = ({ children }: PrivateRouteProps) => {
   const router = useRouter();
 
-  if (router.pathname === "/") {
-    router.push("/dashboard");
-  }
+  // useEffect(() => {
+  //   if (router.pathname === "/") {
+  //     router.push("/dashboard");
+  //   }
+  // }, [router]);
+
   return children;
 };

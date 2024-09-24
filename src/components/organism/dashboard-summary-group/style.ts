@@ -22,6 +22,11 @@ const Create = {
     color: ${colorPallate.blackLight100};
     font-size: ${({ fontSize }) => fontSize ?? "16px"};
   `,
+   SpanSummaryTitleText: styled.span<{ fontSize?: string }>`
+    font-weight: 400;
+    color: ${colorPallate.blackLight100};
+    font-size: ${({ fontSize }) => fontSize ?? "16px"};
+  `,
   WrapperSummaryDescription: styled.div`
     align-items: center;
   `,

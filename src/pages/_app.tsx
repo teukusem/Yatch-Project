@@ -23,7 +23,7 @@ const App: NextComponentType<AppContext, AppInitialProps, AppLayoutProps> = ({
           <ConfigProvider theme={theme}>{getLayout(<Component {...pageProps} />)}</ConfigProvider>
         </PrivateRoute>
       </PersistGate>
-    </Provider>
+     </Provider>
   );
 };
 
