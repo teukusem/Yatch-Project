@@ -1,29 +1,29 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, Suspense } from "react";
 import { AppContext, AppInitialProps, AppLayoutProps } from "next/app";
 import type { NextComponentType } from "next";
 import { ConfigProvider } from "antd";
-import { persistor, store } from "@/redux/store";
-import { PersistGate } from "redux-persist/integration/react";
-import { Provider } from "react-redux";
 import theme from "@/theme/themeConfig";
 import "@/styles/globals.css";
-import Layout from "@/layouts";
+import "antd/dist/reset.css"; 
+import dynamic from 'next/dynamic'
 import { PrivateRoute } from "@/context/auth-context";
+const LazyLayout = dynamic(() => import("@/layouts"), { ssr: false });
 
 const App: NextComponentType<AppContext, AppInitialProps, AppLayoutProps> = ({
   Component,
   pageProps,
 }: AppLayoutProps) => {
-  const getLayout = Component.getLayout || ((page: ReactNode) => <Layout>{page}</Layout>);
+  const getLayout =
+    Component.getLayout || ((page: ReactNode) => <LazyLayout>{page}</LazyLayout>);
 
   return (
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <PrivateRoute>
-          <ConfigProvider theme={theme}>{getLayout(<Component {...pageProps} />)}</ConfigProvider>
-        </PrivateRoute>
-      </PersistGate>
-     </Provider>
+    <PrivateRoute>
+      <ConfigProvider theme={theme}>
+        <Suspense fallback={<div>Loading...</div>}>
+          {getLayout(<Component {...pageProps} />)}
+        </Suspense>
+      </ConfigProvider>
+    </PrivateRoute>
   );
 };
 

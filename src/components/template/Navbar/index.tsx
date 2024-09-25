@@ -7,7 +7,6 @@ import notification from "@/assets/images/icon/notification.svg";
 import Image from "next/image";
 import { getSelectOptionsLanguange } from "@/utils/getSelectOptions";
 import { useRouter } from "next/router";
-import { Url } from "next/dist/shared/lib/router/router";
 
 const { Header } = Layout;
 

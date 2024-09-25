@@ -47,9 +47,9 @@ function ModalAdditionalVessel({
     } catch (error) {}
   };
 
-  // useEffect(() => {
-  //   fetchCountries();
-  // }, []);
+  useEffect(() => {
+    fetchCountries();
+  }, []);
 
   return (
     <ModalPopup

@@ -8,11 +8,11 @@ interface PrivateRouteProps {
 export const PrivateRoute = ({ children }: PrivateRouteProps) => {
   const router = useRouter();
 
-  // useEffect(() => {
-  //   if (router.pathname === "/") {
-  //     router.push("/dashboard");
-  //   }
-  // }, [router]);
+  useEffect(() => {
+    if (router.pathname === "/") {
+      router.push("/dashboard");
+    }
+  }, [router]);
 
   return children;
 };
